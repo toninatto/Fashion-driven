@@ -22,20 +22,20 @@
                         <div class="opcao" onclick="selecionarItem(this)">
                             <img src="tshirt.png" />
                         </div>
-                        <p>T-shirt</p>
+                        <p class="auxiliar">T-shirt</p>
                     </div>
                     <div class="caixa-opcao">
                         <div class="opcao" onclick="selecionarItem(this)"> 
                             <img src="Camiseta.png" />
                         </div>
-                        <p>Camiseta</p>
+                        <p class="auxiliar">Camiseta</p>
                     </div>
                     <div class="caixa-opcao">
 
                         <div class="opcao" onclick="selecionarItem(this)">
                             <img src="Mangalonga.png" />
                         </div>
-                        <p>Manga longa</p>
+                        <p class="auxiliar">Manga longa</p>
                     </div>
                 </div>
             </div>
@@ -46,20 +46,20 @@
                         <div class="opcao" onclick="selecionarItem(this)">
                             <img src="GolaV.png" />
                         </div>
-                        <p>Gola V</p>
+                        <p class="auxiliar">Gola V</p>
                     </div>
                     <div class="caixa-opcao">
                         <div class="opcao" onclick="selecionarItem(this)">
                             <img src="GolaRedonda.png" />
                         </div>
-                        <p>Gola Redonda</p>
+                        <p class="auxiliar">Gola Redonda</p>
                     </div>
                     <div class="caixa-opcao">
 
                         <div class="opcao" onclick="selecionarItem(this)">
                             <img src="GolaPolo.png" />
                         </div>
-                        <p>Gola polo</p>
+                        <p class="auxiliar">Gola polo</p>
                     </div>
                 </div>
             </div>
@@ -70,27 +70,27 @@
                         <div class="opcao" onclick="selecionarItem(this)">
                             <img src="Seda.png" />
                         </div>
-                        <p>Seda</p>
+                        <p class="auxiliar">Seda</p>
                     </div>
                     <div class="caixa-opcao">
                         <div class="opcao" onclick="selecionarItem(this)">
                             <img src="Algodão.png" />
                         </div>
-                        <p>Algodão</p>
+                        <p class="auxiliar">Algodão</p>
                     </div>
                     <div class="caixa-opcao">
 
                         <div class="opcao" onclick="selecionarItem(this)">
                             <img src="Poliester.png" />
                         </div>
-                        <p>Poliéster</p>
+                        <p class="auxiliar">Poliéster</p>
                     </div>
                 </div>
             </div>
             <div class="caixa-finalizacao">
                 <p>Imagem de referência</p>
                 <input type="text" name="mensagem" size="18px" placeholder="Insira o link"/>
-                <button class="botao"><p>Confirmar pedido</p></button>
+                <button class="botao" onclick="confirmarPedido()"><p>Confirmar pedido</p></button>
             </div>
         </div>
         <div class="ilustracao"> <img src="ilustração.png" /> </div>
@@ -104,6 +104,8 @@
             </div>
         </div>
     </footer>
+    
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="scrips.js"></script>
 </body>
 
