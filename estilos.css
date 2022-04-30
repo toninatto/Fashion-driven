@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+header {
+    background-color: #404EED;
+    height: 89px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+    box-sizing: border-box;
+}
+main {
+    width: 100%;
+    display: flex; 
+    justify-content: space-between;
+    background-color: aquamarine;
+}
+.caixa-opcoes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FCFCFC;
+    padding-top: 6px;
+}
+.ilustracao {
+    width: 671px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #404EED;
+    padding-inline: 32px;
+    padding-top: 51px;
+}
+.ilustracao img {
+    height: 669px;
+}
+.caixa-escolha {
+    margin-top: 34px;
+}
+.escolhas {
+    display: flex;
+}
+.caixa-opcao {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+}
+.caixa-opcao:nth-child(2) {
+    margin-inline: 42px;
+}
+.opcao {
+    background-color: #F2F2F2;
+    border-radius: 50%;
+    border-color: #c4c4c4;
+    border-style: solid;
+    border-width: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin-block: 8.6px;    
+}
+p {
+    font-family: 'roboto';
+    font-size: 18px;
+    color: #232323;
+}
+.caixa-finalizacao {
+    width:397px;
+    margin-top: 33px;
+    margin-bottom: 40px;
+}
+.caixa-finalizacao input {
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+    
+    border-radius: 10px;
+    border: none;
+    background-color: #F2F2F2;
+}
+button {
+    height: 40px;
+    width:100%;
+    border-radius: 10px;
+    background-color: #c4c4c4;
+    margin-top: 24px;
+    border: none;
+}
+button p {
+    font-size: 20px;
+    color: #FCFCFC;
+}
+footer {
+    background-color: #F2F2F2;
+    width: 100%;
+    padding-top: 31px;
+    padding-left: 120px;
+    padding-bottom: 32px;
+    box-sizing: border-box;
+}
+footer p {
+    font-size: 24px;
+}
+.ultimos-pedidos {
+    margin-top: 16px;
+}
+.caixa-ultimo {
+    height: 237px;
+    width: 202px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.caixa-ultimo img {
+    margin-top: 6px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+h1 {
+    font-family: 'roboto';
+    font-weight: 700;
+    font-size: 20px;
+    color: #232323;
+}
+span {
+    font-family: 'roboto';
+    font-weight: 400;
+    font-size: 20px;
+    color: #232323;
+}
