@@ -98,15 +98,21 @@ footer {
     background-color: #F2F2F2;
     width: 100%;
     padding-top: 31px;
-    padding-left: 120px;
+    padding-left: 118px;
     padding-bottom: 32px;
+    padding-right: 140px;
     box-sizing: border-box;
+   
 }
 footer p {
     font-size: 24px;
 }
 .ultimos-pedidos {
-    margin-top: 16px;
+    
+    display:flex;
+    flex-wrap: wrap;
+    
+    
 }
 .caixa-ultimo {
     height: 237px;
@@ -118,6 +124,8 @@ footer p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 16px;
+    margin-inline: 8px;    
 }
 .caixa-ultimo img {
     margin-top: 6px;

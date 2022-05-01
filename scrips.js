@@ -6,8 +6,40 @@ let atributoum;
 let atributodois;
 let atributotres;
 let referencia;
+let recentes;
 let nome = prompt("Qual o seu nome?");
 
+pegarRecentes();
+
+function pegarRecentes () {
+    const promise = axios.get("https://mock-api.driven.com.br/api/v4/shirts-api/shirts");
+    
+    promise.then(carregarDados);
+}
+
+function carregarDados (response) {
+    recentes = response.data;
+    postarRecentes ();
+}
+
+function postarRecentes () {
+    console.log(recentes);
+    console.log(recentes.length);
+    let postagens = document.querySelector(".ultimos-pedidos");
+    postagens.innerHTML = "";
+    for (let i = 0; i < recentes.length; i++) {
+        postagens.innerHTML += `<div class="caixa-ultimo" onclick="cliqueRecentes(this)">
+        <img src=${recentes[i].image}/>
+        <h1>Criador: <span>${recentes[i].owner}</span></h1>
+    </div>`
+
+    }
+
+}
+
+function cliqueRecentes (recomendado) {
+    console.log(recomendado);
+}
 
 let eum = document.querySelectorAll(".escolhas");
 console.log(eum);
@@ -102,7 +134,8 @@ function enviarPedido() {
     
 }
 function sucessoEnvio(response) {
-    alert("Seu pedido foi confirmado!");     
+    alert("Seu pedido foi confirmado!");
+    pegarRecentes();
 }
 
 function tratarErro(error) {
