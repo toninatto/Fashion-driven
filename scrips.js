@@ -7,38 +7,55 @@ let atributodois;
 let atributotres;
 let referencia;
 let recentes;
+let autor;
 let nome = prompt("Qual o seu nome?");
 
 pegarRecentes();
 
-function pegarRecentes () {
+function pegarRecentes() {
     const promise = axios.get("https://mock-api.driven.com.br/api/v4/shirts-api/shirts");
-    
+
     promise.then(carregarDados);
 }
 
-function carregarDados (response) {
+function carregarDados(response) {
     recentes = response.data;
-    postarRecentes ();
+    postarRecentes();
 }
 
-function postarRecentes () {
+//O certo seria usar "author" aqui, mas o author não consta no API, aí fica como undefined.
+function postarRecentes() {
     console.log(recentes);
     console.log(recentes.length);
     let postagens = document.querySelector(".ultimos-pedidos");
     postagens.innerHTML = "";
-    for (let i = 0; i < recentes.length; i++) {
+    for (let i = 0; i < 10; i++) {
         postagens.innerHTML += `<div class="caixa-ultimo" onclick="cliqueRecentes(this)">
         <img src=${recentes[i].image}/>
-        <h1>Criador: <span>${recentes[i].owner}</span></h1>
-    </div>`
+        <h1>Criador: <span>${recentes[i].owner}</span></h1> 
+    </div>`; 
 
-    }
+    } 
 
 }
 
-function cliqueRecentes (recomendado) {
-    console.log(recomendado);
+//O certo aqui seria colocar autor, mas o autor não consta no API.
+function cliqueRecentes(recomendado) {
+
+    let confirmacao = confirm("Deseja encomendar esse modelo?");
+
+    if (confirmacao === true) {
+        for (let i = 0; i < 10; i++) {
+            let algo = recomendado.querySelector(`.recente_${i}`);
+            if (algo !== null) {
+                atributoum = recentes[i].model;
+                atributodois = recentes[i].neck;
+                atributotres = recentes[i].material;
+                nome = recentes[i].owner; 
+                enviarPedido()
+            }
+        } 
+    }
 }
 
 let eum = document.querySelectorAll(".escolhas");
@@ -80,7 +97,7 @@ function confirmarPedido() {
         alert("Selecione as três características e coloque um link adequado de uma imagem de referência");
     } else {
 
-        alert("Seu pedido foi enviado, aguarde confirmação.");
+        alert("Seu pedido foi enviado, aguarde confirmação.");       
 
         console.log(verium);
         atributoum = verium.parentNode.querySelector(".auxiliar").innerHTML;
@@ -117,6 +134,7 @@ function confirmarPedido() {
     }
 }
 
+//Aqui deveria vir a variável autor, mas tá bugada
 function enviarPedido() {
     enviopedido = {
         model: atributoum,
@@ -124,15 +142,15 @@ function enviarPedido() {
         material: atributotres,
         image: referencia,
         owner: nome,
-        author: nome
+        author: nome 
     }
     let promise = axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts", enviopedido);
     console.log(promise);
 
     promise.then(sucessoEnvio);
     promise.catch(tratarErro);
-    
 }
+
 function sucessoEnvio(response) {
     alert("Seu pedido foi confirmado!");
     pegarRecentes();
@@ -140,5 +158,5 @@ function sucessoEnvio(response) {
 
 function tratarErro(error) {
     console.log(error.response);
-    alert("Ops, não conseguimos processar sua encomenda.")    
+    alert("Ops, não conseguimos processar sua encomenda.")
 }
