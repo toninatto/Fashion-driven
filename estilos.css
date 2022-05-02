@@ -72,6 +72,7 @@ p {
     width:397px;
     margin-top: 33px;
     margin-bottom: 40px;
+
 }
 .caixa-finalizacao input {
     height: 40px;
@@ -127,11 +128,14 @@ footer p {
     margin-top: 16px;
     margin-inline: 8px; 
     overflow: hidden;
+    word-break: break-word;
 }
 .caixa-ultimo img {
     margin-top: 6px;
     margin-bottom: 8px;
     width: 100%;
+    max-height: 190px;
+    overflow: hidden;
 }
 h1 {
     font-family: 'roboto';
@@ -153,4 +157,68 @@ span {
 .ligar {
     background-color: #404EED;
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
+    header {
+        justify-content: center;
+        padding-left: 0px;        
+    }
+    main {
+        flex-direction: column-reverse;              
+        
+    }
+    .ilustracao {
+        width: 100%;        
+        padding-inline: 12px;
+        padding-top: 5px;
+        box-sizing: border-box;
+    }
+    .ilustracao img {
+        height: 100%;
+        width: 100%;
+    }
+    .caixa-opcao:nth-child(2) {
+        margin-inline: 10px;
+    }
+    .caixa-finalizacao {
+        width:100%;
+                
+        box-sizing: border-box;
+        padding-inline: 15px;
+        
+    }
+    .caixa-finalizacao input {
+        box-sizing: border-box;
+    }
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-bottom: 20px;
+        padding-right: 15px;
+        box-sizing: border-box;       
+    }
+
+    .ultimos-pedidos {    
+        justify-content: center;        
+    }
+    .caixa-ultimo {
+        height: 197px;
+        width: 151px;        
+        padding: 5px;
+    }
+    h1 {        
+        font-weight: 600;
+        font-size: 18px;        
+    }
+    span {       
+        font-size: 18px;        
+    }
+        
+
+
 }

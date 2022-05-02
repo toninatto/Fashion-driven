@@ -8,7 +8,7 @@ let atributotres;
 let referencia;
 let recentes;
 let autor;
-let nome = prompt("Qual o seu nome?");
+let usuario = prompt("Qual o seu nome?");
 
 pegarRecentes();
 
@@ -25,26 +25,20 @@ function carregarDados(response) {
 
 //O certo seria usar "author" aqui, mas o author não consta no API, aí fica como undefined.
 function postarRecentes() {
-    console.log(recentes);
-    console.log(recentes.length);
     let postagens = document.querySelector(".ultimos-pedidos");
     postagens.innerHTML = "";
     for (let i = 0; i < 10; i++) {
         postagens.innerHTML += `<div class="caixa-ultimo" onclick="cliqueRecentes(this)">
         <img class="recente_${i}" src=${recentes[i].image}/>
         <h1>Criador: <span>${recentes[i].owner}</span></h1> 
-    </div>`; 
-
-    } 
-
+    </div>`;
+    }
 }
 
 //O certo aqui seria colocar autor, mas o autor não consta no API.
 function cliqueRecentes(recomendado) {
 
     let confirmacao = confirm("Deseja encomendar esse modelo?");
-    console.log(confirmacao);
-    
 
     if (confirmacao === true) {
         for (let i = 0; i < 10; i++) {
@@ -54,24 +48,20 @@ function cliqueRecentes(recomendado) {
                 atributoum = recentes[i].model;
                 atributodois = recentes[i].neck;
                 atributotres = recentes[i].material;
-                nome = recentes[i].owner; 
-                console.log(atributoum);
-                console.log(atributodois);
-                console.log(atributotres);
-                console.log(nome);
+                referencia = recentes[i].image;
+                nome = recentes[i].owner;
+
                 enviarPedido()
             }
-        } 
+        }
     }
 }
 
 let eum = document.querySelectorAll(".escolhas");
-console.log(eum);
 
 function selecionarItem(elemento) {
 
     let pai = elemento.parentNode.parentNode;
-    console.log(pai);
 
     if (pai.querySelector(".clicado") !== null) {
         pai.querySelector(".clicado").classList.remove("clicado");
@@ -89,7 +79,6 @@ function selecionarItem(elemento) {
 function botaoFinalizar() {
 
     referencia = document.querySelector(".caixa-finalizacao Input").value;
-    console.log(referencia);
 
     if (referencia !== "") {
         document.querySelector(".botao").classList.add("ligar");
@@ -104,9 +93,10 @@ function confirmarPedido() {
         alert("Selecione as três características e coloque um link adequado de uma imagem de referência");
     } else {
 
-        alert("Seu pedido foi enviado, aguarde confirmação.");       
+        alert("Seu pedido foi enviado, aguarde confirmação.");
 
-        console.log(verium);
+        nome = usuario;
+
         atributoum = verium.parentNode.querySelector(".auxiliar").innerHTML;
         atributodois = veridois.parentNode.querySelector(".auxiliar").innerHTML;
         atributotres = veritres.parentNode.querySelector(".auxiliar").innerHTML;
@@ -134,9 +124,7 @@ function confirmarPedido() {
         } else if (atributotres === "Poliéster") {
             atributotres = "polyester";
         }
-        console.log(atributoum);
-        console.log(atributodois);
-        console.log(atributotres);
+
         enviarPedido();
     }
 }
@@ -149,10 +137,9 @@ function enviarPedido() {
         material: atributotres,
         image: referencia,
         owner: nome,
-        author: nome 
+        author: nome
     }
     let promise = axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts", enviopedido);
-    console.log(promise);
 
     promise.then(sucessoEnvio);
     promise.catch(tratarErro);
