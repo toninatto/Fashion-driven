@@ -31,7 +31,7 @@ function postarRecentes() {
     postagens.innerHTML = "";
     for (let i = 0; i < 10; i++) {
         postagens.innerHTML += `<div class="caixa-ultimo" onclick="cliqueRecentes(this)">
-        <img src=${recentes[i].image}/>
+        <img class="recente_${i}" src=${recentes[i].image}/>
         <h1>Criador: <span>${recentes[i].owner}</span></h1> 
     </div>`; 
 
@@ -43,15 +43,22 @@ function postarRecentes() {
 function cliqueRecentes(recomendado) {
 
     let confirmacao = confirm("Deseja encomendar esse modelo?");
+    console.log(confirmacao);
+    
 
     if (confirmacao === true) {
         for (let i = 0; i < 10; i++) {
             let algo = recomendado.querySelector(`.recente_${i}`);
+            console.log(algo);
             if (algo !== null) {
                 atributoum = recentes[i].model;
                 atributodois = recentes[i].neck;
                 atributotres = recentes[i].material;
                 nome = recentes[i].owner; 
+                console.log(atributoum);
+                console.log(atributodois);
+                console.log(atributotres);
+                console.log(nome);
                 enviarPedido()
             }
         } 
